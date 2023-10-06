@@ -1,19 +1,19 @@
-import quart_flask_patch
+from .types import ConfigMode
+from .config import Config
 
-from types.typing import ConfigMode
-from config.config import setup_config
+from .db import db
 
-from db import db
-from quart import Quart  
+from quart import Quart
 
 
-def create_app(mode: ConfigMode = 'development'):
+def create_app(mode: ConfigMode = 'development') -> Quart:
     """In production create as app = create_app('Production')"""
     app = Quart(__name__)
+    config = Config()
     
-    app.config.from_object(setup_config(mode))
+    app.config.from_object(config.setup_config(mode))
     db.init_app(app)
-    
+
     with app.app_context():
         db.create_all()
     

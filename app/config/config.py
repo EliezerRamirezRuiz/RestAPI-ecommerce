@@ -5,6 +5,7 @@ class DefaultConfig(object):
     DEBUG = False
     TESTING = False
     SECRET_KEY = 'secret'
+    SQLALCHEMY_DATABASE_URI = "sqlite:///project.db"
 
 
 class DevelopmentConfig(DefaultConfig):
@@ -19,7 +20,16 @@ class DictConfig(TypedDict):
     default: DefaultConfig
     development: DevelopmentConfig
     production: ProductionConfig
-    
 
-def setup_config(mode:str) -> object:
-    return DictConfig().get(mode, 'default')
+
+class Config():
+    def __init__(self) -> None:
+        self.config: DictConfig = {
+            "default":DefaultConfig,
+            "development": DevelopmentConfig,
+            "production": ProductionConfig 
+            }
+    
+    
+    def setup_config(self, mode:str) -> object:    
+        return self.config.get(mode, 'default')
