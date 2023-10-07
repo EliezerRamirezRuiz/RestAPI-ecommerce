@@ -1,16 +1,6 @@
-from .config import (
-    DefaultConfig, 
-    DevelopmentConfig, 
-    DictConfig, 
-    ProductionConfig,
-    Config
-    )
+from .config import Config
 
 
 __all__ = [
-    "DefaultConfig",
-    "DevelopmentConfig",
-    "DictConfig",
-    "ProductionConfig",
     "Config"
-]
+    ]

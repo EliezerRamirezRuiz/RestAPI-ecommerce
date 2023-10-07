@@ -4,13 +4,13 @@ from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import (mapped_column, relationship)
 from sqlalchemy import (Integer, String)
 
-from db import db
+from .db import db
 
 if TYPE_CHECKING:
-    from .order import Order
+    from .order import OrderModel
 
 
-class Adress(db.Model):
+class AdressModel(db.Model):
     __tablename__ = "adress"
     
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -20,5 +20,5 @@ class Adress(db.Model):
     state_id: Mapped[int] = mapped_column(Integer, nullable=False)
     country_id: Mapped[int] = mapped_column(Integer, nullable=False)
     
-    order: Mapped["Order"] = relationship(back_populates="adress")
+    order: Mapped["OrderModel"] = relationship(back_populates="adress")
     

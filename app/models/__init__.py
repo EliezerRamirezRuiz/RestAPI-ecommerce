@@ -1,22 +1,24 @@
-from .adress import Adress
-from .brand import Brand
-from .category import Category
-from .city import City
-from .country import Country
-from .order import Order
-from .product import Product
-from .state import State
-from .user import User
+from .adress import AdressModel
+from .brand import BrandModel
+from .category import CategoryModel
+from .city import CityModel
+from .country import CountryModel
+from .order import OrderModel
+from .product import ProductModel
+from .state import StateModel
+from .user import UserModel
+from .db import db
 
 
 __all__ = [
-    "Adress",
-    "Brand",
-    "Category",
-    "City",
-    "Country",
-    "Order",
-    "Product",
-    "State",
-    "User"
+    "AdressModel",
+    "BrandModel",
+    "CategoryModel",
+    "CityModel",
+    "CountryModel",
+    "OrderModel",
+    "ProductModel",
+    "StateModel",
+    "UserModel",
+    "db"
 ]
