@@ -1,6 +1,6 @@
 from flask import Flask
 
-from .blueprints import *
+from .controllers import *
 from .typing import ConfigMode
 from .config import Config
 from .models import db

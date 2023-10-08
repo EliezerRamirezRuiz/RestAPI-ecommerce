@@ -17,4 +17,4 @@ class OrderModel(db.Model):
     name: Mapped[str] = mapped_column(String, nullable=False)
     user_id: Mapped[int] = mapped_column(ForeignKey("user.id"))
     
-    order: Mapped["AdressModel"] = relationship(back_populates="order")
+    adress: Mapped["AdressModel"] = relationship(back_populates="order")
