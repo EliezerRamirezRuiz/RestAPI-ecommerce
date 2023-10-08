@@ -4,6 +4,6 @@ from flask import Blueprint
 adress = Blueprint('adress', __name__)
 
 
-@adress.route('/')
-def index():
+@adress.route('/<int:id>')
+def get_adress(id):
     pass

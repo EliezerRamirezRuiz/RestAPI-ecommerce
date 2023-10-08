@@ -5,5 +5,5 @@ country = Blueprint('country', __name__)
 
 
 @country.route('/')
-def index():
+def get_country():
     pass

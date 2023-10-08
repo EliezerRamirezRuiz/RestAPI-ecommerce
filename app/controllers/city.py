@@ -4,6 +4,6 @@ from flask import Blueprint
 city = Blueprint('city', __name__)
 
 
-@city.route('/')
-def index():
+@city.route('/<>int:id')
+def get_city():
     pass

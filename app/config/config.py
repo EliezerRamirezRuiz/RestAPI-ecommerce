@@ -14,7 +14,7 @@ class DevelopmentConfig(DefaultConfig):
 
 class ProductionConfig(DefaultConfig):
     SECRET_KEY = 'eueueueueueueeuueueue'
-    
+
 
 class DictConfig(TypedDict):
     default: DefaultConfig
@@ -25,11 +25,10 @@ class DictConfig(TypedDict):
 class Config():
     def __init__(self) -> None:
         self.config: DictConfig = {
-            "default":DefaultConfig,
+            "default": DefaultConfig,
             "development": DevelopmentConfig,
-            "production": ProductionConfig 
-            }
-    
-    
-    def setup_config(self, mode:str) -> object:    
+            "production": ProductionConfig
+        }
+
+    def setup_config(self, mode: str) -> object:
         return self.config.get(mode, 'default')

@@ -5,5 +5,5 @@ user = Blueprint('user', __name__)
 
 
 @user.route('/')
-def index():
+def get_user():
     pass

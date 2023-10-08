@@ -5,5 +5,5 @@ product = Blueprint('product', __name__)
 
 
 @product.route('/')
-def index():
+def get_product():
     pass
