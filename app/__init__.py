@@ -17,7 +17,7 @@ def create_app(mode: ConfigMode='development'):
     
     app.config.from_object(config.setup_config(mode))
     db.init_app(app)
-
+    
     with app.app_context():
         db.create_all()
     

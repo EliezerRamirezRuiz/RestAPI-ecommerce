@@ -6,8 +6,9 @@ from .country import CountryModel
 from .order import OrderModel
 from .product import ProductModel
 from .state import StateModel
-from .user import UserModel
-from .db import db
+from .user import UserModel    
+
+from .database import db
 
 
 __all__ = [

@@ -9,14 +9,14 @@ from sqlalchemy.orm import (mapped_column, relationship)
 from sqlalchemy import Integer, String
 from sqlalchemy import func
 
-from .db import db
+from .database import Base
 
 if TYPE_CHECKING:
     from .order import OrderModel
 
 
-class UserModel(db.Model):
-    __tablename__ = "user"
+class UserModel(Base):
+    __tablename__ = "users"
     
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     username: Mapped[str] = mapped_column(String, unique=True, nullable=False)
