@@ -2,10 +2,10 @@ from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy import Integer, String, ForeignKey
 
-from .database import Base
+from .database import db
 
 
-class StateModel(Base):
+class StateModel(db.Model):
     __tablename__ = "states"
     
     id: Mapped[int] = mapped_column(Integer, primary_key=True)

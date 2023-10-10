@@ -1,17 +1,19 @@
 from flask import Flask
 
-from .controllers import *
-from .typing import ConfigMode
+from typing import Literal
+
 from .config import Config
 from .models import db
+from .blueprints import address_blueprint
 
 
-def create_app(mode: ConfigMode='development'):
+def create_app(
+    mode:Literal["development", "production", "default"] = 'development'
+    ):
     """In production create as app = create_app('production')
     
     `mode`: must be [default | development | production] 
     """
-    
     app = Flask(__name__)
     config = Config()
     
@@ -21,4 +23,6 @@ def create_app(mode: ConfigMode='development'):
     with app.app_context():
         db.create_all()
     
+    app.register_blueprint(address_blueprint)
+
     return app

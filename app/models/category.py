@@ -5,13 +5,13 @@ from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column, relationship
 from sqlalchemy import Integer, String
 
-from .database import Base
+from .database import db
 
 if TYPE_CHECKING:
     from .product import ProductModel
 
 
-class CategoryModel(Base):
+class CategoryModel(db.Model):
     __tablename__ = "categories"
     
     id: Mapped[int] = mapped_column(Integer, primary_key=True)

@@ -1,5 +1,5 @@
-from entities import CategoryEntity
-from models import CategoryModel
+from ..entities import CategoryEntity
+from ..models import CategoryModel
 
 
 class CategoryMapper:

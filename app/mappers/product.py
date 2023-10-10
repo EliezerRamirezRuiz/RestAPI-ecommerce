@@ -1,5 +1,5 @@
-from entities import ProductEntity
-from models import ProductModel
+from ..entities import ProductEntity
+from ..models import ProductModel
 
 
 class ProductMapper:

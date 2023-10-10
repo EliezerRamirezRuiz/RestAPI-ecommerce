@@ -1,5 +1,5 @@
-from entities import BrandEntity
-from models import BrandModel
+from ..entities import BrandEntity
+from ..models import BrandModel
 
 
 class BrandMapper:

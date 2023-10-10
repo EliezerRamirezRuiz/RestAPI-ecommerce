@@ -1,5 +1,5 @@
-from entities import UserEntity
-from models import UserModel
+from ..entities import UserEntity
+from ..models import UserModel
 
 
 class UserMapper:

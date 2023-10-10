@@ -1,5 +1,5 @@
-from entities import StateEntity
-from models import StateModel
+from ..entities import StateEntity
+from ..models import StateModel
 
 
 class StateMapper:

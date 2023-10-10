@@ -2,7 +2,7 @@ from typing import Optional
 from dataclasses import dataclass
 from flask_sqlalchemy import SQLAlchemy
 
-from models import CategoryModel
+from ..models import CategoryModel
 
 
 @dataclass

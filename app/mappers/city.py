@@ -1,5 +1,5 @@
-from entities import CityEntity
-from models import CityModel
+from ..entities import CityEntity
+from ..models import CityModel
 
 
 class CityMapper:

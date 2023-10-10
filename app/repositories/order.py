@@ -2,11 +2,11 @@ from typing import Optional
 from dataclasses import dataclass
 from flask_sqlalchemy import SQLAlchemy
 
-from models import OrderModel
+from ..models import OrderModel
 
 
 @dataclass
-class AdressRepository:
+class OrderRepository:
     session_db: SQLAlchemy
     
     

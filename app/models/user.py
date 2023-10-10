@@ -9,13 +9,13 @@ from sqlalchemy.orm import (mapped_column, relationship)
 from sqlalchemy import Integer, String
 from sqlalchemy import func
 
-from .database import Base
+from .database import db
 
 if TYPE_CHECKING:
     from .order import OrderModel
 
 
-class UserModel(Base):
+class UserModel(db.Model):
     __tablename__ = "users"
     
     id: Mapped[int] = mapped_column(Integer, primary_key=True)

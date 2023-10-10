@@ -1,4 +1,4 @@
-from .adress import AdressModel
+from .address import AddressModel
 from .brand import BrandModel
 from .category import CategoryModel
 from .city import CityModel
@@ -10,9 +10,8 @@ from .user import UserModel
 
 from .database import db
 
-
 __all__ = [
-    "AdressModel",
+    "AddressModel",
     "BrandModel",
     "CategoryModel",
     "CityModel",

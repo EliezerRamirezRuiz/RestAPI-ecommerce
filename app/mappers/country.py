@@ -1,5 +1,5 @@
-from entities import CountryEntity
-from models import CountryModel
+from ..entities import CountryEntity
+from ..models import CountryModel
 
 
 class CountryMapper:

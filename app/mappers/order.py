@@ -1,5 +1,5 @@
-from entities import OrderEntity
-from models import OrderModel
+from ..entities import OrderEntity
+from ..models import OrderModel
 
 
 class OrderMapper:

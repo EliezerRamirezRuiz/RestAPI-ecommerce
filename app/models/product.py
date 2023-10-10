@@ -2,10 +2,10 @@ from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy import Integer, String, ForeignKey
 
-from .database import Base
+from .database import db
 
 
-class ProductModel(Base):
+class ProductModel(db.Model):
     __tablename__ = "products"
     
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
