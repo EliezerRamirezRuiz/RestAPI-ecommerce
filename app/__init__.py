@@ -4,7 +4,7 @@ from typing import Literal
 
 from .config import Config
 from .models import db
-from .blueprints import address_blueprint
+from .blueprints import *
 
 
 def create_app(
@@ -18,11 +18,12 @@ def create_app(
     config = Config()
     
     app.config.from_object(config.setup_config(mode))
-    db.init_app(app)
     
     with app.app_context():
+        db.init_app(app)
         db.create_all()
     
     app.register_blueprint(address_blueprint)
-
+    
+    
     return app

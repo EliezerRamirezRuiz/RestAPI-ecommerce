@@ -1,6 +1,8 @@
 from typing import List
 from typing import TYPE_CHECKING
 
+from sqlalchemy_serializer import SerializerMixin
+
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column, relationship
 from sqlalchemy import Integer, String
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     from .product import ProductModel
 
 
-class BrandModel(db.Model):
+class BrandModel(db.Model, SerializerMixin):
     __tablename__ = "brands"
     
     id: Mapped[int] = mapped_column(Integer, primary_key=True)

@@ -3,8 +3,10 @@ from datetime import datetime
 from typing import List
 from typing import TYPE_CHECKING
 
+from sqlalchemy_serializer import SerializerMixin
+
 from sqlalchemy.orm import Mapped
-from sqlalchemy.orm import (mapped_column, relationship)
+from sqlalchemy.orm import mapped_column, relationship
 
 from sqlalchemy import Integer, String
 from sqlalchemy import func
@@ -15,7 +17,7 @@ if TYPE_CHECKING:
     from .order import OrderModel
 
 
-class UserModel(db.Model):
+class UserModel(db.Model, SerializerMixin):
     __tablename__ = "users"
     
     id: Mapped[int] = mapped_column(Integer, primary_key=True)

@@ -7,6 +7,8 @@ from .order import order_blueprint
 from .product import product_blueprint
 from .state import state_blueprint
 from .user import user_blueprint
+from .swagger import swagger_ui_blueprint
+from .handler_error import handler_error_blueprint
 
 
 __all__ = [
@@ -18,5 +20,7 @@ __all__ = [
     "order_blueprint",
     "product_blueprint",
     "state_blueprint",
-    "user_blueprint"
+    "user_blueprint",
+    "swagger_ui_blueprint",
+    "handler_error_blueprint"
 ]

@@ -1,7 +1,7 @@
 from flask import Blueprint
 
 
-brand_blueprint = Blueprint('brand', __name__)
+brand_blueprint = Blueprint('brand', __name__, url_prefix="/brand")
 
 
 @brand_blueprint.route('/<int:id>')
