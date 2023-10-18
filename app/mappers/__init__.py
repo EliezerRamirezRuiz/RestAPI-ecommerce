@@ -1,4 +1,4 @@
-from .adress import AdressMapper
+from .address import AddressMapper
 from .brand import BrandMapper
 from .category import CategoryMapper
 from .city import CityMapper
@@ -10,7 +10,7 @@ from .user import UserMapper
 
 
 __all__ = [
-    "AdressMapper",
+    "AddressMapper",
     "BrandMapper",
     "CategoryMapper",
     "CityMapper",

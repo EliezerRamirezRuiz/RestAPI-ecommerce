@@ -1,56 +1,79 @@
-from typing import List
+from typing import Optional, Tuple
 
-from dataclasses import dataclass
-
-from sqlalchemy.exc import NoResultFound
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import select
- 
+
+from sqlalchemy import Result
+from sqlalchemy import select, update
+
 from ..models import AddressModel
 
 
-@dataclass
 class AddressRepository:
-    db: SQLAlchemy
-    
-    def find_by_id(self, id: int):
-        try:
-            address = self.db.session.execute(select(AddressModel).filter_by(id=id)).scalar_one()
-            if address is not None:
-                return address
+    """ Class Focused """
 
-        except NoResultFound:
-            print("exec")
-            return "address not found, check the id and try again."
-        
-        
-    def find_by_name(self, name: str) -> AddressModel | str: 
-        try:
-            address = self.db.session.execute(select(AddressModel).filter_by(name=name)).scalar_one()
-            if address is not None:
-                return address
-            
-        except NoResultFound:
-            print("exec")
-            return "address not found, check the name and try again."
-        
-        
-    def find_all(self) -> List[AddressModel] | str:
-        try:
-            addresses = self.db.session.execute(select(AddressModel).order_by(AddressModel.id))
-            if addresses is not None:
-                return addresses
+    def __init__(self, db: SQLAlchemy):
+        self.db = db
 
-        except NoResultFound:
-            print("exec")
-            return "we couldn't find addresses"
-        
-    
-    def create(self, address: AddressModel):
+
+    def find_by_id(self, id: int) -> Optional[AddressModel]:
+        """ Find AddressModel by id """
         try:
-            self.db.session.add(address)
-            self.db.session.commit()
-            
+            address = self.db.session.execute(
+                select(AddressModel).filter_by(id=id)).scalar_one()
+            return address
+
         except Exception as ex:
             print(ex)
-            
+            return None
+
+    def find_by_name(self, name: str) -> Optional[AddressModel]:
+        """ Find AddressModel by name """
+        try:
+            address = self.db.session.execute(
+                select(AddressModel).filter_by(name=name)).scalar_one()
+            return address
+
+        except Exception as ex:
+            print(ex)
+            return None
+
+    def find_all(self) -> Result[Tuple[Optional[AddressModel]]]:
+        """ Find all AddressModel """
+        try:
+            addresses = self.db.session.execute(
+                select(AddressModel).order_by(AddressModel.id))
+            return addresses
+
+        except Exception as ex:
+            print(ex)
+            return None
+
+    def create_one(self, address: AddressModel):
+        """ Create AddressModel """
+        try:
+            self.db.session.add(address)
+
+            if address is None:
+                self.db.session.rollback()
+                return None
+
+            self.db.session.commit()
+            return address
+
+        except Exception as ex:
+            print(ex)
+            return None
+        
+    def update_one(self, id: int, param_address: AddressModel):
+        try:
+            address = update(AddressModel).\
+                where(AddressModel.id==id).\
+                values(param_address)
+                
+            self.db.session.commit()
+            print(f"address: {address}")
+            return address
+
+        except Exception as ex:
+            print(ex)
+            return None

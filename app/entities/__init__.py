@@ -1,4 +1,4 @@
-from .adress import AdressEntity
+from .adress import AddressEntity
 from .brand import BrandEntity
 from .category import CategoryEntity
 from .city import CityEntity
@@ -10,7 +10,7 @@ from .user import UserEntity
 
 
 __all__ = [
-    "AdressEntity",
+    "AddressEntity",
     "BrandEntity",
     "CategoryEntity",
     "CityEntity",
