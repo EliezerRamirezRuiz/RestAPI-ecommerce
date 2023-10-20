@@ -58,7 +58,7 @@ def post():
 def update(id: int):
     try:
         if request.method == "PUT":
-            address = [i for i in request.json['address'].values()]
+            address = request.json['address']
             address_service = AddressService()
             print(address)
             response = address_service.update_address(

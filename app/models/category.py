@@ -1,6 +1,8 @@
 from typing import List
 from typing import TYPE_CHECKING
 
+from dataclasses import dataclass
+
 from sqlalchemy_serializer import SerializerMixin
 
 from sqlalchemy.orm import Mapped
@@ -13,6 +15,7 @@ if TYPE_CHECKING:
     from .product import ProductModel
 
 
+@dataclass
 class CategoryModel(db.Model, SerializerMixin):
     __tablename__ = "categories"
     

@@ -1,3 +1,5 @@
+from dataclasses import dataclass
+
 from sqlalchemy_serializer import SerializerMixin
 
 from sqlalchemy.orm import Mapped
@@ -7,6 +9,7 @@ from sqlalchemy import Integer, String
 from .database import db
 
 
+@dataclass
 class CityModel(db.Model, SerializerMixin):
     __tablename__ = "cities"
     

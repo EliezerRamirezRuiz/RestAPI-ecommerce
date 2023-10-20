@@ -1,5 +1,7 @@
 from typing import TYPE_CHECKING
 
+from dataclasses import dataclass
+
 from sqlalchemy_serializer import SerializerMixin
 
 from sqlalchemy.orm import Mapped
@@ -12,6 +14,7 @@ if TYPE_CHECKING:
     from .address import AddressModel
 
 
+@dataclass
 class OrderModel(db.Model, SerializerMixin):
     __tablename__ = "orders"
     

@@ -48,10 +48,12 @@ class AddressService:
         param_address: AddressModel
     ) -> Optional[AddressEntity]:
         """ Update Address"""
-        address = self.address_repository.update_one(id, param_address)
+        address = self.address_repository.update_one(
+            id, param_address
+        )
 
         if address is None:
             return None
-        
+
         print(address)
         return "Address updated"

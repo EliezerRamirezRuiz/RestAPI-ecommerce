@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from dataclasses import dataclass
+
 from typing import List
 from typing import TYPE_CHECKING
 
@@ -17,6 +19,7 @@ if TYPE_CHECKING:
     from .order import OrderModel
 
 
+@dataclass
 class UserModel(db.Model, SerializerMixin):
     __tablename__ = "users"
     
