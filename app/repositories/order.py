@@ -1,20 +1,7 @@
-from typing import Optional
-from dataclasses import dataclass
-from flask_sqlalchemy import SQLAlchemy
-
 from ..models import OrderModel
+from .base import BaseRepository
 
 
-@dataclass
-class OrderRepository:
-    session_db: SQLAlchemy
-    
-    
-    def find_by_id(self, id: int) -> Optional[OrderModel]:
-        # self.session_db.session
-        ...
-        
-        
-    def find_by_name(self, name: str) -> Optional[OrderModel]: 
-        # self.session_db.session
-        ...
+class OrderRepository(BaseRepository):
+    def __init__(self, model=OrderModel) -> None:
+        super().__init__(model)

@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class AddressEntity():
+class AddressEntity:
     id: int
     name: str
     number: int

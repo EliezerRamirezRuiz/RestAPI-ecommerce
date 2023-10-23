@@ -1,20 +1,7 @@
-from typing import Optional
-from dataclasses import dataclass
-from flask_sqlalchemy import SQLAlchemy
-
 from ..models import CityModel
+from .base import BaseRepository
 
 
-@dataclass
-class CityRepository:
-    session_db: SQLAlchemy
-    
-    
-    def find_by_id(self, id: int) -> Optional[CityModel]:
-        # self.session_db.session
-        ...
-        
-        
-    def find_by_name(self, name: str) -> Optional[CityModel]: 
-        # self.session_db.session
-        ...
+class CityRepository(BaseRepository):
+    def __init__(self, model=CityModel) -> None:
+        super().__init__(model)

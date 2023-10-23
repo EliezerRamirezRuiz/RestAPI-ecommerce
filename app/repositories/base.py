@@ -1,26 +1,23 @@
 from typing import Optional, Tuple
 
-from dataclasses import dataclass
-
-from flask_sqlalchemy import SQLAlchemy
-
 from sqlalchemy import Result
 from sqlalchemy import select, update
 
-from ..variables import Model
+from ..models import (
+    Model,
+    db as database
+)
 
 
-@dataclass
 class BaseRepository:
     """ Class Focused """
-    db: SQLAlchemy
-    model: Model
+    def __init__(self, model: Model) -> None:
+        self.db = database
+        self.model = model
 
-    def find_by_id(
-        self,
-        id: int
-    ) -> Optional[Model]:
-        """ Find AddressModel by id """
+
+    def find_by_id(self, id: int) -> Optional[Model]:
+        """  """
         try:
             address = self.db.session.execute(
                 select(self.model).filter_by(id=id)).scalar_one()
@@ -31,10 +28,7 @@ class BaseRepository:
             print(ex)
             return None
 
-    def find_by_name(
-        self,
-        name: str
-    ) -> Optional[Model]:
+    def find_by_name(self, name: str) -> Optional[Model]:
         """ Find AddressModel by name """
         try:
             address = self.db.session.execute(
@@ -45,9 +39,7 @@ class BaseRepository:
             print(ex)
             return None
 
-    def find_all(
-        self
-    ) -> Optional[Result[Tuple[Model]]]:
+    def find_all(self) -> Optional[Result[Tuple[Model]]]:
         """ Find all AddressModel """
         try:
             addresses = self.db.session.execute(
@@ -74,17 +66,16 @@ class BaseRepository:
             print(ex)
             return None
 
-    def update_one(self, id: int, param_address: dict):
+    def update_one(self, id: int, model: dict):
         try:
-            model = self.db.session.execute(
-                update(Model)
-                .where(Model.id == id)
-                .values(param_address)
+            model_updated = self.db.session.execute(
+                update(self.model)
+                .where(self.model.id == id)
+                .values(model)
             )
-
             self.db.session.commit()
-            print(f"address: {model}")
-            return model
+            
+            return model_updated
 
         except Exception as ex:
             print(ex)

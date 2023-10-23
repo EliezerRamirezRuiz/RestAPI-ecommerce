@@ -2,6 +2,6 @@ from dataclasses import dataclass
 
 
 @dataclass
-class BrandEntity():
+class BrandEntity:
     id: int
     name: str

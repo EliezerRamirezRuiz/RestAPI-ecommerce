@@ -7,9 +7,10 @@ from .models import db
 from .blueprints import load_blueprint
 
 
-def create_app(
-    mode:Literal["development", "production", "default"] = 'development'
-):
+Mode = Literal["development", "production", "default"]
+
+
+def create_app(mode: Mode = 'development'):
     app = Flask(__name__)
     config = Config()
     

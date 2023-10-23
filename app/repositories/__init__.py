@@ -9,7 +9,11 @@ from .state import StateRepository
 from .user import UserRepository
 
 
+Repository = AddressRepository | BrandRepository | CategoryRepository | CityRepository | CountryRepository | OrderRepository | ProductRepository | StateRepository | UserRepository
+
+
 __all__ = [
+    "Repository",
     "AddressRepository",
     "BrandRepository",
     "CategoryRepository",

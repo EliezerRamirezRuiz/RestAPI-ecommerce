@@ -59,11 +59,11 @@ def update(id: int):
     try:
         if request.method == "PUT":
             address = request.json['address']
-            address_service = AddressService()
+            service = AddressService()
             print(address)
-            response = address_service.update_address(
-                id, 
-                address)
+            response = service.update_model(
+                id = id, 
+                model = address)
             return jsonify(data=response)
 
     except Exception as ex:

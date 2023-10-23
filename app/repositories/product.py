@@ -1,20 +1,7 @@
-from typing import Optional
-from dataclasses import dataclass
-from flask_sqlalchemy import SQLAlchemy
-
 from ..models import ProductModel
+from .base import BaseRepository
 
 
-@dataclass
-class ProductRepository:
-    session_db: SQLAlchemy
-    
-    
-    def find_by_id(self, id: int) -> Optional[ProductModel]:
-        # self.session_db.session
-        ...
-        
-        
-    def find_by_name(self, name: str) -> Optional[ProductModel]: 
-        # self.session_db.session
-        ...
+class ProductRepository(BaseRepository):
+    def __init__(self, model=ProductModel) -> None:
+        super().__init__(model)

@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class CategoryEntity():
+class CategoryEntity:
     id: int
     name: str
     

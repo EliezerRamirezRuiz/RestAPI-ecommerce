@@ -2,6 +2,6 @@ from dataclasses import dataclass
 
 
 @dataclass
-class StateEntity():
+class StateEntity:
     id: int
     name: str
