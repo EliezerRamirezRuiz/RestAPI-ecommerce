@@ -8,10 +8,9 @@ from .product import ProductModel
 from .state import StateModel
 from .user import UserModel
 
-from .database import db
-
 
 Model = AddressModel | BrandModel | CategoryModel | CityModel | CountryModel | OrderModel | ProductModel | StateModel | UserModel
+
 
 __all__ = [
     "Model",
@@ -24,5 +23,4 @@ __all__ = [
     "ProductModel",
     "StateModel",
     "UserModel",
-    "db"
 ]

@@ -13,7 +13,7 @@ from sqlalchemy.orm import mapped_column, relationship
 from sqlalchemy import Integer, String
 from sqlalchemy import func
 
-from .database import db
+from ..extensions import db
 
 if TYPE_CHECKING:
     from .order import OrderModel

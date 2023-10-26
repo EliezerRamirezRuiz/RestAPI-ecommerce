@@ -4,7 +4,8 @@ from typing import TypedDict
 class DefaultConfig(object):
     DEBUG = False
     TESTING = False
-    SECRET_KEY = 'secret'
+    SECRET_KEY = "secret"
+    JWT_SECRET_KEY = "ABCDEFGHIJK"
     SQLALCHEMY_DATABASE_URI = "sqlite:///project.db"
 
 

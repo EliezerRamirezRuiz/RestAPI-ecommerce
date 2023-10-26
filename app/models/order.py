@@ -8,7 +8,8 @@ from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import (mapped_column, relationship)
 from sqlalchemy import (Integer, String, ForeignKey)
 
-from .database import db
+from ..extensions import db
+
 
 if TYPE_CHECKING:
     from .address import AddressModel

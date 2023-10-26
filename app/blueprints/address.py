@@ -5,30 +5,33 @@ from ..models import AddressModel
 from ..services import AddressService
 
 
-address_blueprint = Blueprint('adress', __name__, url_prefix="/address")
+address = Blueprint('adress', __name__, url_prefix="/address")
 
 
-@address_blueprint.route('/<int:id>', methods=["GET"])
-def get(id: int):
+@address.route('/<int:id>', methods=["GET"])
+def get_by_id(id: int):
     try:
         if request.method == "GET":
-            address_service = AddressService()
-            address = address_service.get_by_id(id)
+            service = AddressService()
+            model = service.get_by_id(id)
 
-            if address is not None:
+            if model is not None: 
                 return jsonify(
                     success=True,
                     message="data founded",
-                    data=address,
+                    data=model,
                 )
 
     except Exception as ex:
+        print(ex)
         return jsonify(
             error="data not found"
         )
 
 
-@address_blueprint.route('/', methods=["POST"])
+
+
+@address.route('/', methods=["POST"])
 def post():
     try:
         if request.method == "POST":
@@ -54,7 +57,7 @@ def post():
         )
 
 
-@address_blueprint.route('/<int:id>', methods=["PUT"])
+@address.route('/<int:id>', methods=["PUT"])
 def update(id: int):
     try:
         if request.method == "PUT":

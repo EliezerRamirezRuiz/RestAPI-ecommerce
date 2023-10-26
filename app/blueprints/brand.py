@@ -3,10 +3,10 @@ from flask import Blueprint, request, jsonify
 from ..repositories import BrandRepository
 
 
-brand_blueprint = Blueprint('brand', __name__, url_prefix="/brand")
+brand = Blueprint('brand', __name__, url_prefix="/brand")
 
 
-@brand_blueprint.route('/<int:id>')
+@brand.route('/<int:id>')
 def get_brand(id):
     try:
         if request.method == "GET":

@@ -3,10 +3,8 @@ from typing import Optional, Tuple
 from sqlalchemy import Result
 from sqlalchemy import select, update
 
-from ..models import (
-    Model,
-    db as database
-)
+from ..models import Model
+from ..extensions import db as database
 
 
 class BaseRepository:
