@@ -19,7 +19,7 @@ class ProductionConfig(DefaultConfig):
 
 class DictConfig(TypedDict):
     default: DefaultConfig
-    development: DevelopmentConfig
+    development: DevelopmentConfig 
     production: ProductionConfig
 
 

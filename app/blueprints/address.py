@@ -1,5 +1,7 @@
-from flask import Blueprint, request
+from flask import Blueprint
 from flask import jsonify
+from flask import request
+
 
 from ..models import AddressModel
 from ..services import AddressService
@@ -30,12 +32,11 @@ def get_by_id(id: int):
 
 
 
-
 @address.route('/', methods=["POST"])
 def post():
     try:
         if request.method == "POST":
-            address_service = AddressService()
+            service = AddressService()
             address = AddressModel(
                 name=request.json['name'],
                 number=int(request.json['number']),
@@ -44,7 +45,7 @@ def post():
                 country_id=int(request.json['country_id'])
             )
 
-            address_created = address_service.create_address(address=address)
+            address_created = service.create_model(model=address)
             return jsonify(
                 success=True,
                 message="data created",
@@ -63,12 +64,10 @@ def update(id: int):
         if request.method == "PUT":
             address = request.json['address']
             service = AddressService()
-            print(address)
             response = service.update_model(
                 id = id, 
                 model = address)
             return jsonify(data=response)
 
     except Exception as ex:
-        print(ex)
         return f"Error: {ex}"
