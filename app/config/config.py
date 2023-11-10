@@ -1,6 +1,3 @@
-from typing import TypedDict
-
-
 class DefaultConfig(object):
     DEBUG = False
     TESTING = False
@@ -17,18 +14,12 @@ class ProductionConfig(DefaultConfig):
     SECRET_KEY = 'eueueueueueueeuueueue'
 
 
-class DictConfig(TypedDict):
-    default: DefaultConfig
-    development: DevelopmentConfig 
-    production: ProductionConfig
-
-
-class Config():
+class Config:
     def __init__(self) -> None:
-        self.config: DictConfig = {
-            "default": DefaultConfig,
-            "development": DevelopmentConfig,
-            "production": ProductionConfig
+        self.config = {
+            "default": DefaultConfig(),
+            "development": DevelopmentConfig(),
+            "production": ProductionConfig()
         }
 
     def setup_config(self, mode: str) -> object:

@@ -9,3 +9,5 @@ class BaseResponse:
         self.success = success
         self.message = message
         self.data = data
+        
+    

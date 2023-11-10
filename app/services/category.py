@@ -5,8 +5,8 @@ from .base import BaseService
 
 class CategoryService(BaseService):
     def __init__(
-        self, 
-        repository=CategoryRepository(), 
+        self,
+        repository=CategoryRepository(),
         mapper=CategoryMapper()
-        ) -> None:
+    ) -> None:
         super().__init__(repository, mapper)
